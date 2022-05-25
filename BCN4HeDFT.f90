@@ -201,9 +201,6 @@ Endif
 
 Allocate(rimp(N_imp,3))
 
-open(1,file="imp.input")
-read(1,nml=imp)
-close(1)
 
 
 !
@@ -560,6 +557,11 @@ select case(mode)
      Write(6,*) "We use a previous pure droplet converged to make a good aproximation for the density profile"
    case(6) 
      Write(6,*) "We use a previous pure droplet converged to make a good aproximation for the density profile,multi-impurities-holes"
+    
+    open(1,file="imp.input")
+    read(1,nml=imp)
+    close(1)
+
    case default !.............................. Start still not programed.
       write(6,*) ' '
       write(6,*) ' The variable mode has no acceptable value.'
