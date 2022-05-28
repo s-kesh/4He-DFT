@@ -84,7 +84,7 @@ real       (kind=8)  :: mu4=10.d0,mu4err      ! Value of Chemical potential and 
 real       (kind=8)  :: epsx,epsxerr    ! Value of autovalue and associated error
 real       (kind=8)  :: errmu4          ! Relative change betwen iteration for chemical potential
 real       (kind=8)  :: Select_pot 
-real       (kind=8)   :: lexternalpotential! To read the potential of the impurity@HeN from a extern file 
+real       (kind=8)   :: lexternalpotential=.false. ! To read the potential of the impurity@HeN from a extern file 
 real       (kind=8)  :: deltat0,deltat  ! Step of time unvariable part and 'real step'
 real       (kind=8)  :: deltat0x,deltatx ! Step of time unvariable part and 'real step'
 real       (kind=8)  :: pafl=0.10       ! Default value for Paflov parameter
@@ -123,7 +123,7 @@ interface
   end function v_alka
 end interface
 
-lexternalpotential=0 !!! Default
+
 
 Write(6,*) "name file pure=",filepure
 N_imp=1 !! default value
@@ -468,7 +468,7 @@ if(lexternal)then
    Else
      Write(6,'(" Potencial exterior per:",A80,/,"r_cutoff_gs,umax_gs..:",1p,2E15.6)')selec_gs,r_cutoff_gs,umax_gs
      Write(*,*) "antes de llamar   ", lexternalpotential," nombre=",expotential
-   IF(lexternalpotential==1)Then
+   IF(lexternalpotential)Then
     open(unit=111,file=expotential)
      call titols(111,cchar,isalto)
      read(111,*) xmaxp,ymaxp,zmaxp,hxp,hyp,hzp,nxp,nyp,nzp,limp,ximpp,yimpp,zimpp
