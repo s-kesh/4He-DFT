@@ -84,7 +84,7 @@ real       (kind=8)  :: mu4=10.d0,mu4err      ! Value of Chemical potential and 
 real       (kind=8)  :: epsx,epsxerr    ! Value of autovalue and associated error
 real       (kind=8)  :: errmu4          ! Relative change betwen iteration for chemical potential
 real       (kind=8)  :: Select_pot 
-real       (kind=8)   :: lexternalpotential=.false. ! To read the potential of the impurity@HeN from a extern file 
+logical    (kind=8)  :: lexternalpotential=.false. ! To read the potential of the impurity@HeN from a extern file
 real       (kind=8)  :: deltat0,deltat  ! Step of time unvariable part and 'real step'
 real       (kind=8)  :: deltat0x,deltatx ! Step of time unvariable part and 'real step'
 real       (kind=8)  :: pafl=0.10       ! Default value for Paflov parameter
